@@ -158,5 +158,63 @@
     }
   </script>
 
+  <script>
+const pages = [
+  {
+    title: "Movies",
+    description: "Latest MCU movie news and updates",
+    url: "movies.html"
+  },
+  {
+    title: "TV",
+    description: "Marvel TV shows and streaming series",
+    url: "tv.html"
+  },
+  {
+    title: "Chronology",
+    description: "Marvel Cinematic Universe timeline and order",
+    url: "chronology.html"
+  },
+  {
+    title: "Characters",
+    description: "Profiles of MCU heroes and villains",
+    url: "characters.html"
+  },
+  {
+    title: "Easter Eggs & Theories",
+    description: "Hidden details, theories, and fan speculation",
+    url: "eastereggs.html"
+  }
+];
+
+const form = document.getElementById("search-form");
+const resultsSection = document.getElementById("search-results");
+const resultsList = document.getElementById("results-list");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const query = document.getElementById("search").value.toLowerCase();
+  resultsList.innerHTML = "";
+  resultsSection.style.display = "block";
+
+  const results = pages.filter(page =>
+    page.title.toLowerCase().includes(query) ||
+    page.description.toLowerCase().includes(query)
+  );
+
+  if (results.length === 0) {
+    resultsList.innerHTML = "<li>No results found.</li>";
+    return;
+  }
+
+  results.forEach(page => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${page.url}">${page.title}</a> – ${page.description}`;
+    resultsList.appendChild(li);
+  });
+});
+</script>
+
 </body>
 
