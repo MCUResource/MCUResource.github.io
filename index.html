@@ -26,16 +26,28 @@
         </a>
       </div>
 
-      <!-- Navigation -->
-      <nav class="main-nav" aria-label="Primary navigation">
-        <ul>
-          <li><a href="movies.html">Movies</a></li>
-          <li><a href="tv.html">TV</a></li>
-          <li><a href="rumors.html">Rumors</a></li>
-          <li><a href="characters.html">Characters</a></li>
-          <li><a href="release-dates.html">Release Dates</a></li>
-        </ul>
-      </nav>
+      <!-- Mobile menu toggle (shows on mobile only) -->
+<button class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav">
+  <span class="visually-hidden">Open menu</span>
+  ☰
+</button>
+
+<!-- Navigation -->
+<nav class="main-nav"
+     id="primary-nav"
+     aria-label="Primary navigation"
+     data-open="false">
+  <ul>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="tv.html">TV</a></li>
+    <li><a href="rumors.html">Rumors</a></li>
+    <li><a href="characters.html">Characters</a></li>
+    <li><a href="release-dates.html">Release Dates</a></li>
+  </ul>
+</nav>
 
       <!-- Header actions -->
       <div class="header-actions">
