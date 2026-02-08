@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Search Results</title>
+  <title>Search Results | The Marvel Cinematic Universe Resource</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search results for The Marvel Cinematic Universe Resource.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -64,7 +66,21 @@
   <ul id="results-list"></ul>
 </main>
 
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("#primary-nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.getAttribute("data-open") === "true";
+      nav.setAttribute("data-open", String(!isOpen));
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+  }
+</script>
+
 <script src="search.js"></script>
+  
 </body>
 </html>
 
