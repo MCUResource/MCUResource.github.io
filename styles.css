@@ -5,6 +5,14 @@
   font-family: Arial, sans-serif;
 }
 
+a {
+  color: #0033cc;
+}
+
+strong, b {
+  color: #000000;
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
