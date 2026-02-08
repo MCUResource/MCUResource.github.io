@@ -1,9 +1,9 @@
 const pages = [
-  { title: "Movies", url: "movies.html", keywords: "films cinema mcu movie" },
-  { title: "TV", url: "tv.html", keywords: "shows series streaming disney+" },
-  { title: "Chronology", url: "chronology.html", keywords: "timeline order chronological" },
+  { title: "Movies", url: "movies.html", keywords: "film cinema movie mcu" },
+  { title: "TV", url: "tv.html", keywords: "show tv spotlight series streaming disney+" },
+  { title: "Chronology", url: "chronology.html", keywords: "timeline order chronological watch-order" },
   { title: "Characters", url: "characters.html", keywords: "heroes villains profiles" },
-  { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories" }
+  { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories easter egg" }
 ];
 
 const resultsList = document.getElementById("results-list");
