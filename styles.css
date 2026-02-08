@@ -138,3 +138,14 @@ h1, .subtitle {
   padding: 0 12px;
 }
 
+/* Desktop: keep nav normal, hide hamburger */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .main-nav {
+    display: block !important;
+  }
+}
+
