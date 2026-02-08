@@ -51,6 +51,10 @@ body {
   font-weight: 500;
 }
 
+h1, .subtitle {
+  text-align: center;
+}
+
 .featured {
   max-width: 700px;
   margin: 0 auto;
