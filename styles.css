@@ -156,6 +156,14 @@ h1, .subtitle {
   padding: 0 12px;
 }
 
+/* Mobile menu button sizing (touch target) */
+.menu-toggle {
+  min-width: 46px;
+  min-height: 46px;
+  padding: 12px;
+  font-size: 24px;
+}
+
 /* Desktop: keep nav normal, hide hamburger */
 @media (min-width: 769px) {
   .menu-toggle {
