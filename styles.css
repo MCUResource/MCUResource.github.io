@@ -98,6 +98,11 @@ h1, .subtitle {
   margin-bottom: 0.5rem;
 }
 
+.saga-heading {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
 .meta {
   display: block;
   color: #777;
