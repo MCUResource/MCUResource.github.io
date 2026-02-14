@@ -172,7 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(form.action, {
         method: "POST",
         body: new FormData(form),
-        headers: { Accept: "application/json" }
+        headers: { 
+          Accept: "application/json" 
+        }
       });
 
       if (!res.ok) throw new Error("Submit failed");
