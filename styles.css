@@ -232,6 +232,8 @@ h1, .subtitle {
 
 #egg-form .form-field:has(#creditName) {
   grid-column: 4 / span 1;
+  align-self: center;
+  transform: translateY(-6px);
 }
 
 #egg-form .captcha-wrap {
