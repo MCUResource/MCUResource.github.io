@@ -213,6 +213,35 @@ h1, .subtitle {
 
 /* Easter Egg Form Styles */
 
+.user-submission,
+.community-submissions {
+  margin-top: 2rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  max-width: 700px;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.captcha-wrap {
+  margin: 0.75rem 0 1rem;
+}
+
 .hp-field {
   display: none;
 }
