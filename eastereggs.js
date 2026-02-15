@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const type = escapeHtml(item.submissionType || "Theory");
   const title = escapeHtml(item.title || "");
   const source = escapeHtml(item.source || "");
-  const analysis = escapeHtml(item.analysis || "");
+  const details = escapeHtml(item.details || "");
 
   const credit = item.creditName ? escapeHtml(item.creditName) : "";
   const ts = item.timestamp ? escapeHtml(item.timestamp) : "";
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ${source}${ts ? ` <span class="archive-timestamp">• ${ts}</span>` : ""}
       </p>
 
-      <div class="archive-analysis">
-        <p class="archive-label">Analysis:</p>
-        <p class="archive-text">${analysis}</p>
+      <div class="archive-details">
+        <p class="archive-label">Details:</p>
+        <p class="archive-text">${details}</p>
       </div>
 
       ${credit ? `<p class="archive-credit">Submitted by ${credit}</p>` : ""}
@@ -113,14 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return ok ? "" : "Use mm:ss or hh:mm:ss (example: 00:42:10).";
       }
     },
-    analysis: {
-      el: document.getElementById("analysis"),
-      err: document.getElementById("analysis-error"),
+    details: {
+      el: document.getElementById("details"),
+      err: document.getElementById("details-error"),
       validate: (v) => {
         const t = v.trim();
-        if (!t) return "Analysis is required.";
+        if (!t) return "Details is required.";
         if (t.length < 15) return "Please add more detail (15+ characters).";
-        if (t.length > 800) return "Please keep analysis to 800 characters or less.";
+        if (t.length > 800) return "Please keep details to 800 characters or less.";
         return "";
       }
     },
