@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="entry-title">${type}: ${title}</h3>
 
         <p class="entry-meta">
-          <span class="tag">${type}</span>
           <span aria-hidden="true">•</span>
           <span class="project">${relatedTo}</span>
           ${ts ? `<span aria-hidden="true">•</span><span class="timecode">Timestamp: ${ts}</span>` : ""}
