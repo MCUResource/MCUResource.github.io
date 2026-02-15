@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderApprovedItem(item) {
   if (!listEl) return;
 
-  const li = document.createElement("li");
-  li.className = "entry-card";
+  const li = document.createElement("li"); // no class needed; CSS targets .submission-list li
 
   const type = escapeHtml(item.submissionType || "Theory");
   const title = escapeHtml(item.title || "");
@@ -27,36 +26,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const credit = item.creditName ? escapeHtml(item.creditName) : "";
   const ts = item.timestamp ? escapeHtml(item.timestamp) : "";
 
-  const hasMeta = relatedTo || ts;
-
   li.innerHTML = `
-    <article>
-      <header class="entry-head">
-        <h3 class="entry-title">${type}: ${title}</h3>
+    <article class="archive-entry">
+      <h3 class="archive-title">${type}: ${title}</h3>
 
-        ${hasMeta ? `
-          <p class="entry-meta">
-            ${relatedTo ? `<span class="project">${relatedTo}</span>` : ""}
-            ${relatedTo && ts ? `<span aria-hidden="true">•</span>` : ""}
-            ${ts ? `<span class="timecode">Timestamp: ${ts}</span>` : ""}
-          </p>
-        ` : ""}
-      </header>
-
-      <p class="entry-details">${details}</p>
-
-      ${credit ? `
-        <footer class="entry-foot">
-          <p class="entry-credit">Submitted by: ${credit}</p>
-        </footer>
+      ${relatedTo || ts ? `
+        <p class="archive-meta">
+          ${relatedTo ? `<span class="archive-label">Related To:</span> ${relatedTo}` : ""}
+          ${relatedTo && ts ? ` <span class="archive-timestamp">• ${ts}</span>` : ""}
+          ${!relatedTo && ts ? `<span class="archive-timestamp">${ts}</span>` : ""}
+        </p>
       ` : ""}
+
+      <div class="archive-details">
+        <p class="archive-label">Details:</p>
+        <p class="archive-text">${details}</p>
+      </div>
+
+      ${credit ? `<p class="archive-credit">Submitted by ${credit}</p>` : ""}
     </article>
   `;
 
   listEl.appendChild(li);
 }
 
-  
   async function loadApproved() {
     try {
       const res = await fetch("approved-submissions.json", { cache: "no-store" });
