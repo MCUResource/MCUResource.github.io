@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   li.innerHTML = `
     <article>
       <header class="entry-head">
-        <h3 class="entry-title">${title}</h3>
+        <h3 class="entry-title">${type}: ${title}</h3>
 
         <p class="entry-meta">
           <span class="tag">${type}</span>
