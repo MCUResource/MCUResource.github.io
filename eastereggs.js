@@ -27,16 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const credit = item.creditName ? escapeHtml(item.creditName) : "";
   const ts = item.timestamp ? escapeHtml(item.timestamp) : "";
 
+  const hasMeta = relatedTo || ts;
+
   li.innerHTML = `
     <article>
       <header class="entry-head">
         <h3 class="entry-title">${type}: ${title}</h3>
 
-        <p class="entry-meta">
-          <span aria-hidden="true">•</span>
-          <span class="project">${relatedTo}</span>
-          ${ts ? `<span aria-hidden="true">•</span><span class="timecode">Timestamp: ${ts}</span>` : ""}
-        </p>
+        ${hasMeta ? `
+          <p class="entry-meta">
+            ${relatedTo ? `<span class="project">${relatedTo}</span>` : ""}
+            ${relatedTo && ts ? `<span aria-hidden="true">•</span>` : ""}
+            ${ts ? `<span class="timecode">Timestamp: ${ts}</span>` : ""}
+          </p>
+        ` : ""}
       </header>
 
       <p class="entry-details">${details}</p>
