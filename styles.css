@@ -316,38 +316,44 @@ h1, .subtitle {
   max-width: 900px;
 }
 
-/* Archive-style submission layout */
-.submission-entry {
+/* Archive entry formatting inside submission cards */
+.archive-entry {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
-.submission-title-line {
+.archive-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.archive-meta,
+.archive-credit {
   margin: 0;
 }
 
-.submission-label {
-  display: inline-block;
+.archive-label {
   font-weight: 700;
-  margin-right: 0.4rem;
 }
 
-.submission-source {
-  margin: 0;
-  color: #333;
-}
-
-.submission-timestamp {
+.archive-timestamp {
   color: #777;
   font-style: italic;
 }
 
-.submission-details p {
-  margin: 0.25rem 0 0;
+.archive-analysis {
+  margin: 0;
 }
 
-.submission-credit {
-  margin: 0.25rem 0 0;
+.archive-analysis .archive-label {
+  margin: 0 0 0.2rem;
+}
+
+.archive-text {
+  margin: 0;
+}
+
+.archive-credit {
   color: #777;
   font-size: 0.95rem;
 }
