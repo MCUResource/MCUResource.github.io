@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return "";
       }
     },
+  };
 
   function setError(key, msg) {
     const f = fields[key];
