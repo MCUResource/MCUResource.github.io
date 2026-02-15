@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <title>Easter Eggs & Fan Theories Archive | The MCU Resource</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Explore MCU Easter eggs and fan theories, 
-    and submit your own discoveries to our growing Marvel archive.">
+  <meta name="description" content="Explore MCU Easter eggs and fan theories, and submit your own discoveries to our growing Marvel archive.">
   <link rel="stylesheet" href="styles.css" />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -142,9 +141,32 @@
 </section>
 
 <!-- Approved posts (auto display) -->
-<section class="community-submissions" aria-labelledby="community-heading">
-  <h2 id="community-heading">Community Archive</h2>
-  <ul id="submission-list" class="submission-list"></ul>
+<section class="archive" aria-labelledby="archive-heading">
+  <div class="archive-head">
+    <h2 id="archive-heading">Community Archive</h2>
+    <p class="archive-desc">Browse approved submissions. Use filters to find entries by type or project.</p>
+  </div>
+
+  <div class="archive-controls" role="group" aria-label="Archive controls">
+    <label for="filter-type">Type</label>
+    <select id="filter-type" name="filter-type">
+      <option value="all">All</option>
+      <option value="Easter Egg">Easter Eggs</option>
+      <option value="Theory">Fan Theories</option>
+    </select>
+
+    <label for="filter-project">Project</label>
+    <input id="filter-project" name="filter-project" type="search" placeholder="Search by movie/show…">
+
+    <label for="sort-entries">Sort</label>
+    <select id="sort-entries" name="sort-entries">
+      <option value="newest">Newest</option>
+      <option value="oldest">Oldest</option>
+      <option value="az">A–Z</option>
+    </select>
+  </div>
+
+  <ul id="submission-list" class="archive-grid" aria-live="polite"></ul>
 </section>
 
 </div> <!-- /.container -->
