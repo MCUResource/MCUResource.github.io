@@ -132,13 +132,14 @@ h1, .subtitle {
 
 .site-footer {
   border-top: 1px solid #ddd;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2rem 1.5rem;
   text-align: center;
   font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .site-footer nav {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .site-footer a {
@@ -148,9 +149,7 @@ h1, .subtitle {
 }
 
 .disclaimer {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
