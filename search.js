@@ -21,7 +21,7 @@ const pages = [
   { title: "Steve Rogers / Captain America", url: "characters.html", keywords: "steve rogers captain america" },
   { title: "Natasha Romanoff / Black Widow", url: "characters.html", keywords: "natasha romanoff black widow" }
 
-  //Coming Soon
+  // Coming Soon
   { title: "Daredevil: Born Again — Season 2", url: "tv.html#daredevil-born-again-season-2", keywords: "daredevil matt murdock born again season 2"},
   { title: "X-Men '97 — Season 2", url: "tv.html#xmen-97-season-2", keywords: "xmen x-men 97 season 2 mutants"},
   { title: "Your Friendly Neighborhood Spider-Man — Season 2", url: "tv.html#friendly-neighborhood-spiderman-season-2", keywords: "spiderman spider-man peter parker season 2 animated"},
