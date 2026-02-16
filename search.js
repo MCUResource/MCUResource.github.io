@@ -7,17 +7,17 @@ const pages = [
   { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories easter egg community archive" },
 
   // Movies
-  { title: "Iron Man (2008)", url: "movies.html", keywords: "tony stark iron man arc reactor obadiah stane james rhodes happy hogan pepper potts" },
-  { title: "Captain America: The First Avenger (2011)", url: "movies.html", keywords: "steve rogers captain america red skull peggy carter bucky barnes hydra" },
-  { title: "The Avengers (2012)", url: "movies.html", keywords: "avengers assemble loki thor captain america steve rogers iron man tony stark hawkeye clint barton black widow natasha romanoff the hulk bruce banner nick fury phil coulson maria hill" },
+  { title: "Iron Man (2008)", url: "movies.html#iron-man", keywords: "tony stark iron man arc reactor obadiah stane james rhodes happy hogan pepper potts" },
+  { title: "Captain America: The First Avenger (2011)", url: "movies.html#captain-america-first-avenger", keywords: "steve rogers captain america red skull peggy carter bucky barnes hydra" },
+  { title: "The Avengers (2012)", url: "movies.html#avengers", keywords: "avengers assemble loki thor captain america steve rogers iron man tony stark hawkeye clint barton black widow natasha romanoff the hulk bruce banner nick fury phil coulson maria hill" },
 
   // TV Shows
-  { title: "WandaVision", url: "tv.html", keywords: "wanda vision westview sitcom agatha harkness billy tommy pietro" },
-  { title: "Loki", url: "tv.html", keywords: "tva variants multiverse sylvie mobius" },
-  { title: "Hawkeye", url: "tv.html", keywords: "clint barton kate bishop yelena belova kingpin wilson fisk echo maya lopez" },
+  { title: "WandaVision", url: "tv.html#wandavision", keywords: "wanda vision westview sitcom agatha harkness billy tommy pietro" },
+  { title: "Loki", url: "tv.html#loki", keywords: "tva variants multiverse sylvie mobius" },
+  { title: "Hawkeye", url: "tv.html#hawkeye", keywords: "clint barton kate bishop yelena belova kingpin wilson fisk echo maya lopez" },
 
   // Characters
-  { title: "Tony Stark / Iron Man", url: "characters.html", keywords: "tony stark iron man" },
+  { title: "Tony Stark / Iron Man", url: "characters/iron-man.html", keywords: "tony stark iron man" },
   { title: "Steve Rogers / Captain America", url: "characters.html", keywords: "steve rogers captain america" },
   { title: "Natasha Romanoff / Black Widow", url: "characters.html", keywords: "natasha romanoff black widow" }
 ];
