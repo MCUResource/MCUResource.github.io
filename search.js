@@ -1,12 +1,37 @@
 const pages = [
+  // Main pages
   { title: "Movies", url: "movies.html", keywords: "film cinema movie mcu" },
-  { title: "TV", url: "tv.html", keywords: "show tv spotlight series streaming disney+" },
-  { title: "Chronology", url: "chronology.html", keywords: "timeline order chronological watch-order" },
+  { title: "TV", url: "tv.html", keywords: "show tv series streaming disney+ special presentation netflix abc" },
+  { title: "Chronology", url: "chronology.html", keywords: "timeline order chronological watch order" },
   { title: "Characters", url: "characters.html", keywords: "heroes villains profiles" },
-  { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories easter egg" }
+  { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories easter egg community archive" },
+
+  // Movies
+  { title: "Iron Man (2008)", url: "movies.html", keywords: "tony stark iron man arc reactor obadiah stane james rhodes happy hogan pepper potts" },
+  { title: "Captain America: The First Avenger (2011)", url: "movies.html", keywords: "steve rogers captain america red skull peggy carter bucky barnes hydra" },
+  { title: "The Avengers (2012)", url: "movies.html", keywords: "avengers assemble loki thor captain america steve rogers iron man tony stark hawkeye clint barton black widow natasha romanoff the hulk bruce banner nick fury phil coulson maria hill" },
+
+  // TV Shows
+  { title: "WandaVision", url: "tv.html", keywords: "wanda vision westview sitcom agatha harkness billy tommy pietro" },
+  { title: "Loki", url: "tv.html", keywords: "tva variants multiverse sylvie mobius" },
+  { title: "Hawkeye", url: "tv.html", keywords: "clint barton kate bishop yelena belova kingpin wilson fisk echo maya lopez" },
+
+  // Characters
+  { title: "Tony Stark / Iron Man", url: "characters.html", keywords: "tony stark iron man" },
+  { title: "Steve Rogers / Captain America", url: "characters.html", keywords: "steve rogers captain america" },
+  { title: "Natasha Romanoff / Black Widow", url: "characters.html", keywords: "natasha romanoff black widow" }
 ];
 
 const resultsList = document.getElementById("results-list");
+
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
 // Safety check so it doesn't error if loaded on another page by accident
 if (resultsList) {
@@ -14,20 +39,26 @@ if (resultsList) {
   const queryRaw = params.get("q") || "";
   const query = queryRaw.trim().toLowerCase();
 
+  // Clear any existing content
+  resultsList.innerHTML = "";
+
   if (!query) {
     resultsList.innerHTML = "<li>Please enter a search term.</li>";
   } else {
-    const results = pages.filter(page =>
-      page.title.toLowerCase().includes(query) ||
-      page.keywords.toLowerCase().includes(query)
-    );
+    const terms = query.split(/\s+/).filter(Boolean);
+
+    const results = pages.filter(page => {
+      const haystack = `${page.title} ${page.keywords}`.toLowerCase();
+      // require ALL words to match (better than “one word matches everything”)
+      return terms.every(t => haystack.includes(t));
+    });
 
     if (results.length === 0) {
-      resultsList.innerHTML = `<li>No results found for "<strong>${queryRaw}</strong>".</li>`;
+      resultsList.innerHTML = `<li>No results found for "<strong>${escapeHtml(queryRaw)}</strong>".</li>`;
     } else {
       results.forEach(page => {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="${page.url}">${page.title}</a>`;
+        li.innerHTML = `<a href="${escapeHtml(page.url)}">${escapeHtml(page.title)}</a>`;
         resultsList.appendChild(li);
       });
     }
