@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = v.trim();
         if (!t) return "Please tell us what it’s from.";
         if (t.length < 2) return "This must be at least 2 characters.";
-        if (t.length > 60) return "Please keep this to 100 characters or less.";
+        if (t.length >100) return "Please keep this to 100 characters or less.";
         return "";
       }
     },
