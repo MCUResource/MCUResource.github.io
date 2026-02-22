@@ -9,7 +9,7 @@ const pages = [
   // Movies
   { title: "Iron Man (2008)", url: "movies.html#iron-man", keywords: "tony stark iron man arc reactor obadiah stane james rhodes happy hogan pepper potts" },
   { title: "Captain America: The First Avenger (2011)", url: "movies.html#captain-america-first-avenger", keywords: "steve rogers captain america red skull peggy carter bucky barnes hydra" },
-  { title: "The Avengers (2012)", url: "movies.html#avengers", keywords: "avengers assemble loki thor captain america steve rogers iron man tony stark hawkeye clint barton black widow natasha romanoff the hulk bruce banner nick fury phil coulson maria hill" },
+  { title: "The Avengers (2012)", url: "movies.html#the-avengers", keywords: "avengers assemble loki thor captain america steve rogers iron man tony stark hawkeye clint barton black widow natasha romanoff the hulk bruce banner nick fury phil coulson maria hill ant man" },
 
   // TV Shows
   { title: "WandaVision", url: "tv.html#wandavision", keywords: "wanda vision westview sitcom agatha harkness billy tommy pietro" },
@@ -20,6 +20,7 @@ const pages = [
   { title: "Tony Stark / Iron Man", url: "characters/iron-man.html", keywords: "tony stark iron man" },
   { title: "Steve Rogers / Captain America", url: "characters.html", keywords: "steve rogers captain america" },
   { title: "Natasha Romanoff / Black Widow", url: "characters.html", keywords: "natasha romanoff black widow" },
+  { title: "Scott Lang / Ant Man", url: "characters/ant-man.html", keywords: "scott lang ant man cassie lang pym particles hank pym hope van dyne x-con security consultants" },
 
   // Coming Soon
   { title: "Daredevil: Born Again — Season 2", url: "tv.html#daredevil-born-again-season-2", keywords: "daredevil matt murdock born again season 2" },
