@@ -69,61 +69,70 @@
   <main id="main-content">
     <div class="container">
 
-      <!-- Page title -->
-      <h1>The Marvel Cinematic Universe Resource</h1>
-
-      <!-- Featured / Latest section -->
-      <section class="subtitle" aria-labelledby="your-unofficial-guide-to-MCU-heading">
-        <h2 id="your-unofficial-guide-to-MCU-heading">Your Unofficial Guide To The MCU</h2>
-
-        <!-- Featured article -->
-        <article class="featured">
-          <h3>Featured Headline</h3>
-
-          <p class="subheadline">
-            Subheadline text
-          </p>
-
-          <p class="meta">
-            <span class="category">Movies</span> •
-            <time datetime="2026-01-27">2 hours ago</time>
-          </p>
-
-          <a href="#" class="read-more">
-            Read more<span class="visually-hidden"> about Featured Headline</span>
+      <!-- Page title / intro -->
+      <header class="home-hero">
+        <h1>The Marvel Cinematic Universe Resource</h1>
+        <p class="lead">
+          An unofficial, organized Marvel Cinematic Universe reference covering all MCU 
+          projects, chronology, characters, and continuity notes.
+        </p>
+      </header>
+  
+      <!-- Canon scope statement -->
+      <section class="canon-scope" aria-labelledby="canon-scope-heading">
+        <h2 id="canon-scope-heading">Canon Scope Statement</h2>
+        <p>
+          <!-- Paste your Canon Scope Statement here -->
+          This site focuses on projects positioned as part of the Marvel Cinematic Universe 
+          (MCU), including theatrical films, television series, Marvel One-Shots, and Special 
+          Presentations. Projects set in alternate continuities that are not integrated into 
+          the MCU’s multiverse narrative are not included in primary listings, though they 
+          remain an important part of Marvel’s broader storytelling legacy.
+        </p>
+      </section>
+  
+      <!-- Featured character of the day -->
+      <section class="featured-character" aria-labelledby="featured-character-heading">
+        <div class="section-heading">
+          <h2 id="featured-character-heading">Featured Character of the Day</h2>
+        </div>
+  
+        <article class="featured-character-card">
+          <a id="featuredCharacterLink" href="#">
+            <img
+              id="featuredCharacterImg"
+              src="images/placeholder-character.jpg"
+              alt=""
+              width="220"
+              height="330"
+              loading="lazy"
+            >
+            <div class="featured-character-text">
+              <h3 id="featuredCharacterName">Character Name</h3>
+              <p id="featuredCharacterBlurb">
+                Short 1–2 sentence description goes here.
+              </p>
+              <span class="read-more">
+                View profile<span class="visually-hidden"> for the featured character</span>
+              </span>
+            </div>
           </a>
-        </article>
-      </section>
-
-      <!-- More articles -->
-      <section class="article-grid" aria-labelledby="more-articles-heading">
-        <h2 id="more-articles-heading" class="visually-hidden">More articles</h2>
-
-        <article class="card">
-          <h3><a href="#">Headline goes here</a></h3>
-          <p class="meta">
-            <span class="category">TV</span> •
-            <time datetime="2026-01-26">Yesterday</time>
-          </p>
-        </article>
-
-        <article class="card">
-          <h3><a href="#">Headline goes here</a></h3>
-          <p class="meta">
-            <span class="category">Rumors</span> •
-            <time datetime="2026-01-25">2 days ago</time>
-          </p>
-        </article>
-
-        <article class="card">
-          <h3><a href="#">Headline goes here</a></h3>
-          <p class="meta">
-            <span class="category">Characters</span> •
-            <time datetime="2026-01-24">3 days ago</time>
+  
+          <p class="featured-character-note">
+            Want more? Browse the full list on the <a href="characters.html">Characters</a> page.
           </p>
         </article>
       </section>
-
+      
+      <!-- About -->
+      <section class="about-project" aria-labelledby="about-project-heading">
+        <h2 id="about-project-heading">About This Project</h2>
+        <p>
+          The Marvel Cinematic Universe Resource is an independent fan project 
+          dedicated to organizing and documenting MCU continuity with clarity 
+          and accuracy.
+        </p>
+      </section>
     </div>
   </main>
 
