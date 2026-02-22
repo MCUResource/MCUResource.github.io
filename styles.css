@@ -139,8 +139,8 @@ h1, .subtitle {
 
 .character-image {
   flex: 0 0 300px;
-  display: flex;
-  align-items: flex-end;
+  overflow:hidden;
+  border-radius: 8px;
 }
 
 .character-facts {
@@ -149,8 +149,8 @@ h1, .subtitle {
 
 .character-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
