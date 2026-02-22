@@ -173,6 +173,15 @@ h1, .subtitle {
   background: #f5f5f5;
 }
 
+.character-profile ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.character-profile li {
+  margin-bottom: 0.25rem;
+}
+
 /* Mobile: stack image, table, then summary */
 @media (max-width: 768px) {
   .character-layout {
