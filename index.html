@@ -162,6 +162,67 @@
     }
   </script>
 
+  <script>
+    <!-- Featured Character of the Day (Daily Rotation) -->
+    const featuredCharacters = [
+      {
+        name: "Iron Man",
+        url: "characters/iron-man.html",
+        img: "images/characters/iron-man.jpg",
+        alt: "Iron Man (Tony Stark)",
+        blurb: "Billionaire inventor Tony Stark becomes the armored Avenger known as Iron Man."
+      },
+      {
+        name: "Ant-Man",
+        url: "characters/ant-man.html",
+        img: "images/characters/ant-man.jpg",
+        alt: "Ant-Man (Scott Lang)",
+        blurb: "A reformed thief who becomes Ant-Man using Pym Particles and a high-tech suit."
+      },
+      {
+        name: "Captain America",
+        url: "characters/captain-america.html",
+        img: "images/characters/captain-america.jpg",
+        alt: "Captain America (Steve Rogers)",
+        blurb: "A World War II super-soldier who becomes one of the Avengers’ greatest leaders."
+      }
+      // Add more characters here
+    ];
+  
+    function getDayIndexLocal(length) {
+      // Changes at local midnight (visitor's time)
+      const now = new Date();
+      const localMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const daysSinceEpoch = Math.floor(localMidnight.getTime() / 86400000);
+      return daysSinceEpoch % length;
+    }
+  
+    function setFeaturedCharacterOfTheDay() {
+      if (!featuredCharacters.length) return;
+  
+      const link = document.getElementById("featuredCharacterLink");
+      const img = document.getElementById("featuredCharacterImg");
+      const name = document.getElementById("featuredCharacterName");
+      const blurb = document.getElementById("featuredCharacterBlurb");
+  
+      // If the homepage section isn't present, do nothing
+      if (!link || !img || !name || !blurb) return;
+  
+      const pick = featuredCharacters[getDayIndexLocal(featuredCharacters.length)];
+  
+      link.href = pick.url;
+      name.textContent = pick.name;
+      blurb.textContent = pick.blurb || "";
+  
+      img.src = pick.img;
+      img.alt = pick.alt || pick.name;
+      img.loading = "lazy";
+      img.decoding = "async";
+    }
+    
+    document.addEventListener("DOMContentLoaded", setFeaturedCharacterOfTheDay);
+  </script>
+
 </body>
 </html>
 
