@@ -132,7 +132,6 @@ h1, .subtitle {
 
 .character-layout {
   display: flex;
-  grid-template-columns: 300px 1fr;
   gap: 2rem;
   align-items: stretch;
   margin-top: 1.25rem;
