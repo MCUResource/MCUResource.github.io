@@ -15,8 +15,8 @@
     <div class="container">
       <!-- Logo -->
       <div class="logo">
-        <a href="index.html">
-          <img src="images/TMCURlogo.png" alt="The Marvel Cinematic Universe Resource logo">
+        <a href="/index.html">
+          <img src="/images/TMCURlogo.png" alt="The Marvel Cinematic Universe Resource logo">
         </a>
       </div>
 
@@ -35,17 +35,17 @@
            aria-label="Primary navigation"
            data-open="false">
         <ul>
-          <li><a href="movies.html">Movies</a></li>
-          <li><a href="tv.html">TV</a></li>
-          <li><a href="chronology.html">Chronology</a></li>
-          <li><a href="characters.html">Characters</a></li>
-          <li><a href="eastereggs.html">Easter Eggs & Theories</a></li>
+          <li><a href="/movies.html">Movies</a></li>
+          <li><a href="/tv.html">TV</a></li>
+          <li><a href="/chronology.html">Chronology</a></li>
+          <li><a href="/characters.html">Characters</a></li>
+          <li><a href="/eastereggs.html">Easter Eggs & Theories</a></li>
         </ul>
       </nav>
 
       <!-- Header actions -->
       <div class="header-actions">
-        <form action="search.html" method="get" class="search-form">
+        <form action="/search.html" method="get" class="search-form">
           <label for="search" class="visually-hidden">Search the site</label>
           <input
             type="search"
@@ -61,13 +61,94 @@
   </header>
 
   <main id="main-content" class="container">
-    <h1>Iron Man</h1>
-    <p><strong>Full name:</strong> Tony Stark</p>
 
-    <p>
-      <a href="../characters.html">← Back to Characters</a>
-    </p>
-  </main>
+  <p class="breadcrumb">
+    <a href="../characters.html">← Back to Characters</a>
+  </p>
+
+  <section class="character-hero">
+    <h1>Iron Man (Tony Stark)</h1>
+
+    <div class="character-layout">
+
+      <div class="character-image">
+        <img
+          src="../images/iron-man.jpg"
+          alt="Iron Man (Tony Stark) in the Marvel Cinematic Universe"
+          width="300"
+          height="450"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="character-facts">
+        <table class="character-profile">
+          <tr>
+            <th>Full Name</th>
+            <td>Tony Stark</td>
+          </tr>
+          <tr>
+            <th>Alias</th>
+            <td>Iron Man</td>
+          </tr>
+          <tr>
+            <th>Species</th>
+            <td>Human</td>
+          </tr>
+          <tr>
+            <th>Portrayed By</th>
+            <td>Robert Downey Jr.</td>
+          </tr>
+          <tr>
+            <th>Affiliation</th>
+            <td>Avengers, Stark Industries</td>
+          </tr>
+          <tr>
+            <th>First Appearance</th>
+            <td>Iron Man (2008)</td>
+          </tr>
+          <tr>
+            <th>Skills & Abilities</th>
+            <td>
+              Genius-level intellect, advanced engineering, powered armor suits,
+              flight capability, repulsor technology, strategic problem-solving
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="character-summary">
+        <p>
+          Tony Stark, also known as Iron Man, is a brilliant inventor, engineer, and the driving 
+          force behind Stark Industries. Known for his wealth, sharp intelligence and even sharper 
+          wit, Tony uses advanced technology of his own design to become one of the world’s most 
+          influential superheroes.
+        </p>
+        <p>
+          Powered by a high-tech arc reactor and clad in cutting-edge armored suits, Iron Man combines 
+          innovation, strategy, and firepower in ways few heroes can match. His suits allow him to fly, 
+          project energy blasts, and adapt to nearly any threat through constant upgrades and improvements. 
+          Beyond the armor, Tony is defined by his ambition and evolving sense of responsibility. What 
+          begins as a reliance on intellect and technology gradually becomes something deeper: a commitment 
+          to protecting others and confronting the consequences of his actions. Iron Man represents the 
+          idea that heroism isn’t about superpowers; it’s about choosing to use your abilities, resources, 
+          and intelligence for something greater than yourself.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="character-section" aria-labelledby="appearances-heading">
+    <h2 id="appearances-heading">Major MCU Appearances</h2>
+    <ul class="appearance-list">
+      <li><a href="../movies.html#iron-man">Iron Man (2008)</a></li>
+      <li><a href="../movies.html#avengers">The Avengers (2012)</a></li>
+      <li><a href="../movies.html#endgame">Avengers: Endgame (2019)</a></li>
+    </ul>
+  </section>
+
+</main>
 
   <footer class="site-footer">
     <p class="disclaimer">Unofficial fan resource.</p>
