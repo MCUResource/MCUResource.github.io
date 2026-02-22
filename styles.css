@@ -131,11 +131,16 @@ h1, .subtitle {
 }
 
 .character-layout {
-  display: grid;
+  display: flex;
   grid-template-columns: 300px 1fr;
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
   margin-top: 1.25rem;
+}
+
+.character-image {
+  display: flex;
+  align-items: flex-end;
 }
 
 .character-image img {
