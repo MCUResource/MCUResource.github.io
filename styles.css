@@ -138,9 +138,13 @@ h1, .subtitle {
 }
 
 .character-image {
-  flex: 0 0 300px
+  flex: 0 0 300px;
   display: flex;
   align-items: flex-end;
+}
+
+.character-facts {
+  flex: 1;
 }
 
 .character-image img {
