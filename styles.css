@@ -118,6 +118,62 @@ h1, .subtitle {
   margin-bottom: 0.75rem;
 }
 
+/* Character profile page layout */
+.character-hero h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.character-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.25rem;
+}
+
+.character-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.character-summary {
+  margin-top: 1.5rem;
+}
+
+.character-summary p + p {
+  margin-top: 0.75rem;
+}
+
+/* Table styling */
+.character-profile {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.character-profile th,
+.character-profile td {
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.character-profile th {
+  width: 35%;
+  font-weight: 700;
+  background: #f5f5f5;
+}
+
+/* Mobile: stack image, table, then summary */
+@media (max-width: 768px) {
+  .character-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .meta {
   display: block;
   color: #777;
