@@ -532,3 +532,123 @@ h1, .subtitle {
     grid-column: auto;
   }
 }
+
+/* -----------------------------
+   Homepage layout
+------------------------------ */
+
+.homepage-intro {
+  text-align: center;
+  margin: 2rem 0 1.5rem;
+}
+
+.homepage-intro .lead {
+  max-width: 800px;
+  margin: 0.75rem auto 0;
+  color: #333333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Canon scope callout */
+.canon-scope {
+  max-width: 900px;
+  margin: 1.5rem auto 2rem;
+  padding: 1.25rem 1.25rem;
+  border: 1px solid #ddd;
+  border-left: 6px solid #F0131E;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.canon-scope h2 {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.canon-scope p {
+  margin: 0;
+  color: #111;
+}
+
+/* Featured character */
+.featured-character {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.featured-character-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.featured-character-card > a {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-character-card img {
+  width: 220px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.featured-character-text h3 {
+  margin: 0 0 0.5rem;
+  color: #000;
+}
+
+.featured-character-text p {
+  margin: 0 0 0.75rem;
+  color: #333333;
+}
+
+.featured-character-card .read-more {
+  display: inline-block;
+  font-weight: 700;
+  color: #0033cc;
+}
+
+.featured-character-note {
+  margin: 0.75rem 0 0;
+  color: #333333;
+}
+
+/* About section */
+.about-project {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.about-project h2 {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.about-project p {
+  margin: 0;
+  color: #333333;
+}
+
+/* Mobile homepage adjustments */
+@media (max-width: 768px) {
+  .featured-character-card > a {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .featured-character-card img {
+    width: min(260px, 100%);
+  }
+
+  .canon-scope h2,
+  .about-project h2 {
+    text-align: center;
+  }
+}
