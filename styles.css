@@ -267,6 +267,23 @@ h1, .subtitle {
   }
 }
 
+/* Mobile: show hamburger, hide nav unless opened */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* closed by default */
+  .main-nav {
+    display: none;
+  }
+
+  /* open when JS sets data-open="true" */
+  #primary-nav[data-open="true"] {
+    display: block;
+  }
+}
+
 .media-list {
   display: grid;
   gap: 2rem;
