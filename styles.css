@@ -272,9 +272,9 @@ h1, .subtitle {
   .menu-toggle {
     display: inline-flex;
   }
-
+  
   /* closed by default */
-  .main-nav {
+  #primary-nav {
     display: none;
   }
 
