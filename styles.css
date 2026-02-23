@@ -118,6 +118,21 @@ h1, .subtitle {
   margin-bottom: 0.75rem;
 }
 
+.homepage-cta {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.homepage-cta a {
+  text-decoration: none;
+  color: #0033cc;
+}
+
+.homepage-cta a:hover,
+.homepage-cta a:focus {
+  text-decoration: underline;
+}
+
 /* Character profile page layout */
 .character-hero h1 {
   text-align: center;
