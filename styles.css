@@ -250,6 +250,7 @@ h1, .subtitle {
 
 /* Mobile menu button sizing (touch target) */
 .menu-toggle {
+  display:none;
   min-width: 46px;
   min-height: 46px;
   padding: 12px;
