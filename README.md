@@ -1,4 +1,1 @@
-## Live Site
-
-Visit the live site here:
-https://mcuresource.github.io/
+[View the Live MCU Resource Site](https://mcuresource.github.io/)
