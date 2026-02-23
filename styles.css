@@ -648,6 +648,22 @@ h1, .subtitle {
   color: #333333;
 }
 
+.back-to-top {
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+.back-to-top a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0033cc;
+}
+
+.back-to-top a:hover,
+.back-to-top a:focus {
+  text-decoration: underline;
+}
+
 /* Mobile homepage adjustments */
 @media (max-width: 768px) {
   .featured-character-card > a {
