@@ -138,6 +138,11 @@ h1, .subtitle {
   text-decoration: underline;
 }
 
+.streaming-info {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
 /* Character profile page layout */
 .character-hero h1 {
   text-align: center;
