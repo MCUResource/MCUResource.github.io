@@ -98,6 +98,11 @@ h1, .subtitle {
   margin-bottom: 0.5rem;
 }
 
+.page-intro {
+  margin: 0.75rem 0 1.25rem;
+  max-width: 70ch;
+}
+
 .category-heading {
   margin-top: 0.75rem;
   font-weight: 600;
