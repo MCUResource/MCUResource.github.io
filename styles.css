@@ -607,6 +607,11 @@ h1, .subtitle {
   color: #111;
 }
 
+.official-media {
+  margin-top: 1rem;
+  color: #333333;
+}
+
 /* Featured character */
 .featured-character {
   max-width: 900px;
