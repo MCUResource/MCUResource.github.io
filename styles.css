@@ -140,7 +140,10 @@ h1, .subtitle {
 
 .external-resources {
   font-size: 0.9rem;
-  margin-top: 2rem;
+}
+
+.coming-soon {
+  margin-bottom: 2rem
 }
 
 /* Character profile page layout */
