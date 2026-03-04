@@ -521,7 +521,7 @@ h1, .subtitle {
 }
 
 .archive-timestamp {
-  color: #777;
+  color: #707070;
   font-style: italic;
 }
 
@@ -534,7 +534,7 @@ h1, .subtitle {
 }
 
 .archive-credit {
-  color: #777;
+  color: #707070;
   font-size: 0.95rem;
   margin: 0;
 }
