@@ -110,6 +110,7 @@
               width="220"
               height="330"
               loading="lazy"
+              decoding="async"
             >
             <div class="featured-character-text">
               <h3 id="featuredCharacterName">Character Name</h3>
@@ -224,8 +225,6 @@
   
       img.src = pick.img;
       img.alt = pick.alt || pick.name;
-      img.loading = "lazy";
-      img.decoding = "async";
     }
     
     document.addEventListener("DOMContentLoaded", setFeaturedCharacterOfTheDay);
