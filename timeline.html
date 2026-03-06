@@ -965,4 +965,22 @@
     }
   </script>
 
+  <script>
+    // Timeline-adjacent toggle (default OFF)
+    const adjacentToggle = document.getElementById("toggle-adjacent");
+    const adjacentItems = document.querySelectorAll('[data-adjacent="true"]');
+
+    function applyAdjacentVisibility() {
+      const show = adjacentToggle && adjacentToggle.checked;
+      adjacentItems.forEach(item => {
+        item.style.display = show ? "" : "none";
+      });
+    }
+
+    if (adjacentToggle) {
+      adjacentToggle.addEventListener("change", applyAdjacentVisibility);
+    }
+    applyAdjacentVisibility();
+  </script>
+
 </body>
