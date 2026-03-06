@@ -146,6 +146,12 @@ h1, .subtitle {
   margin-bottom: 2rem
 }
 
+.timeline-note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
 /* Character profile page layout */
 .character-hero h1 {
   text-align: center;
