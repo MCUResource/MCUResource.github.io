@@ -1,215 +1,283 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Easter Eggs & Fan Theories Archive | The MCU Resource</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore MCU Easter eggs and fan theories, 
-    and submit your own discoveries to our growing Marvel archive.">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-<body>
+document.addEventListener("DOMContentLoaded", () => {
+  // -----------------------
+  // Approved submissions display
+  // -----------------------
+  const listEl = document.getElementById("submission-list");
 
-  <!-- Skip link -->
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  function renderApprovedItem(item) {
+    if (!listEl) return;
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
+    const li = document.createElement("li");
 
-      <!-- Logo -->
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/TMCURlogo.png" alt="The Marvel Cinematic Universe Resource logo">
-        </a>
-      </div>
+    const type = (item.submissionType || "Theory").toString();
+    const title = (item.title || "").toString();
+    const relatedTo = (item.relatedTo || "").toString();
+    const details = (item.details || "").toString();
+    const credit = (item.creditName || "").toString();
+    const ts = (item.timestamp || "").toString();
 
-      <!-- Mobile menu toggle -->
-      <button class="menu-toggle"
-              type="button"
-              aria-expanded="false"
-              aria-controls="primary-nav">
-        <span class="visually-hidden">Open menu</span>
-        ☰
-      </button>
+    const article = document.createElement("article");
+    article.className = "archive-entry";
 
-      <!-- Navigation -->
-      <nav class="main-nav"
-           id="primary-nav"
-           aria-label="Primary navigation"
-           data-open="false">
-        <ul>
-          <li><a href="movies.html">Movies</a></li>
-          <li><a href="tv.html">TV</a></li>
-          <li><a href="timeline.html">Timeline</a></li>
-          <li><a href="characters.html">Characters</a></li>
-          <li><a href="eastereggs.html">Easter Eggs & Theories</a></li>
-        </ul>
-      </nav>
+    const h3 = document.createElement("h3");
+    h3.className = "archive-title";
+    h3.textContent = `${type}: ${title}`;
+    article.appendChild(h3);
 
-      <!-- Header actions -->
-      <div class="header-actions">
-        <form action="search.html" method="get" class="search-form">
-          <label for="search" class="visually-hidden">Search the site</label>
-          <input
-            type="search"
-            id="search"
-            name="q"
-            placeholder="Search"
-            required>
-          <button type="submit">Search</button>
-        </form>
-      </div>
+    if (relatedTo || ts) {
+      const meta = document.createElement("p");
+      meta.className = "archive-meta";
 
-    </div>
-  </header>
-
-  <!-- Main content -->
-  <main id="main-content">
-    <div class="container">
-
-      <!-- Page title -->
-      <h1>MCU Easter Eggs & Fan Theories Archive</h1>
-      <p>Discover hidden details, clever callbacks, and fan theories from across 
-        the Marvel Cinematic Universe — and submit your own to help grow the archive.</p>
-
-  <section class="user-submission" aria-labelledby="submit-heading">
-  <h2 id="submit-heading">Submit an Easter Egg or Fan Theory</h2>
-  <p id="form-help">Submissions are reviewed before being added to the archive.</p>
-
-  <div id="form-success" class="form-success" role="status" aria-live="polite" hidden></div>
-
-  <form id="egg-form"
-        action="https://formspree.io/f/mgolkade"
-        method="POST"
-        novalidate
-        aria-describedby="form-help">
-
-    <!-- Honeypot (spam trap) -->
-    <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-
-    <div class="form-field">
-      <label for="submissionType">Submission type <span aria-hidden="true">*</span></label>
-      <select id="submissionType" name="submissionType" required aria-describedby="submissionType-error">
-        <option value="">Select one…</option>
-        <option value="Easter Egg">Easter Egg</option>
-        <option value="Theory">Theory</option>
-      </select>
-      <p class="field-error" id="submissionType-error"></p>
-    </div>
-
-    <div class="form-field">
-      <label for="title">Title <span aria-hidden="true">*</span></label>
-      <input id="title" name="title" type="text" required minlength="3" maxlength="80"
-             aria-describedby="title-error">
-      <p class="field-error" id="title-error"></p>
-    </div>
-
-    <div class="form-field">
-      <label for="relatedTo">Related To <span aria-hidden="true">*</span></label>
-      <input id="relatedTo" name="relatedTo" type="text" required minlength="2" maxlength="100"
-        aria-describedby="relatedTo-error">
-      <p class="field-error" id="relatedTo-error"></p>
-    </div>
-
-    <div class="form-field">
-      <label for="timestamp">Timestamp (optional)</label>
-      <input id="timestamp" name="timestamp" type="text" placeholder="mm:ss or hh:mm:ss"
-             aria-describedby="timestamp-error">
-      <p class="field-error" id="timestamp-error"></p>
-    </div>
-
-    <div class="form-field">
-      <label for="details">Details <span aria-hidden="true">*</span></label>
-      <textarea id="details" name="details" required minlength="15" maxlength="800"
-        rows="5" aria-describedby="details-error"></textarea>
-      <p class="field-error" id="details-error"></p>
-    </div>
-
-    <div class="form-field">
-      <label for="creditName">Name to credit (optional)</label>
-      <input id="creditName" name="creditName" type="text" maxlength="40">
-    </div>
-
-    <div class="captcha-wrap">
-      <div class="g-recaptcha" data-sitekey="6Lf4l2ssAAAAAFVeo_Qsh6QXKsUCUMTl9rSqZF0X"></div>
-      <p class="field-error" id="captcha-error"></p>
-    </div>
-
-    <button type="submit" class="btn">Submit</button>
-  </form>
-</section>
-
-<!-- Approved posts (auto display) -->
-<section class="archive" aria-labelledby="archive-heading">
-  <header class="archive-head">
-    <h2 id="archive-heading">Community Archive</h2>
-    <p class="archive-desc">Browse approved submissions. Use filters to find entries by type or project.</p>
-  </header>
-
-  <div class="archive-controls" role="group" aria-label="Archive controls">
-    <label for="filter-type">Type</label>
-    <select id="filter-type" name="filter-type">
-      <option value="all">All</option>
-      <option value="Easter Egg">Easter Eggs</option>
-      <option value="Theory">Fan Theories</option>
-    </select>
-
-    <label for="filter-project">Project</label>
-    <input id="filter-project" name="filter-project" type="search" placeholder="Search by movie/show…">
-
-    <label for="sort-entries">Sort</label>
-    <select id="sort-entries" name="sort-entries">
-      <option value="newest">Newest</option>
-      <option value="oldest">Oldest</option>
-      <option value="az">A–Z</option>
-    </select>
-  </div>
-
-  <ul id="submission-list" class="submission-list" aria-live="polite"></ul>
-</section>
-
-</div> <!-- /.container -->
-</main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 The Marvel Cinematic Universe Resource</p>
-      <p class="disclaimer">
-        The Marvel Cinematic Universe Resource is an unofficial fan project 
-        and is not affiliated with Marvel Studios or Disney. All trademarks 
-        and characters are property of their respective owners.
-      </p>
-    </div>
-  </footer>
-
-  <!-- Mobile menu JavaScript -->
-  <script>
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("#primary-nav");
-
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        const isOpen = nav.getAttribute("data-open") === "true";
-        nav.setAttribute("data-open", String(!isOpen));
-        toggle.setAttribute("aria-expanded", String(!isOpen));
-      });
-    }
-  </script>
-
-  <script src="eastereggs.js" defer></script>
-
-  <script>
-    window.addEventListener("pageshow", function (event) {
-      if (event.persisted) {
-        const form = document.querySelector("form");
-        if (form) {
-          form.reset();
-        }
+      if (relatedTo) {
+        const label = document.createElement("span");
+        label.className = "archive-label";
+        label.textContent = "Related To:";
+        meta.appendChild(label);
+        meta.appendChild(document.createTextNode(" " + relatedTo));
       }
-    });
-  </script>
 
-</body>
+      if (relatedTo && ts) {
+        meta.appendChild(document.createTextNode(" "));
+        const dot = document.createElement("span");
+        dot.className = "archive-timestamp";
+        dot.textContent = `• ${ts}`;
+        meta.appendChild(dot);
+      } else if (!relatedTo && ts) {
+        const time = document.createElement("span");
+        time.className = "archive-timestamp";
+        time.textContent = ts;
+        meta.appendChild(time);
+      }
+
+      article.appendChild(meta);
+    }
+
+    const detailsWrap = document.createElement("div");
+    detailsWrap.className = "archive-details";
+
+    const detailsLabel = document.createElement("p");
+    detailsLabel.className = "archive-label";
+    detailsLabel.textContent = "Details:";
+    detailsWrap.appendChild(detailsLabel);
+
+    const detailsText = document.createElement("p");
+    detailsText.className = "archive-text";
+    detailsText.textContent = details;
+    detailsWrap.appendChild(detailsText);
+
+    article.appendChild(detailsWrap);
+
+    if (credit) {
+      const creditP = document.createElement("p");
+      creditP.className = "archive-credit";
+      creditP.textContent = `Submitted by ${credit}`;
+      article.appendChild(creditP);
+    }
+
+    li.appendChild(article);
+    listEl.appendChild(li);
+  }
+
+  async function loadApproved() {
+    try {
+      const res = await fetch("approved-submissions.json", { cache: "no-store" });
+      if (!res.ok) return [];
+      const data = await res.json();
+      return Array.isArray(data) ? data : [];
+    } catch {
+      return [];
+    }
+  }
+
+  (async () => {
+    const approved = await loadApproved();
+    if (!listEl) return;
+
+    listEl.textContent = "";
+
+    if (approved.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No approved submissions are available right now.";
+      listEl.appendChild(li);
+      return;
+    }
+
+    approved.forEach(renderApprovedItem);
+  })();
+
+  // -----------------------
+  // Form submission + validation + success message
+  // -----------------------
+  const form = document.getElementById("egg-form");
+  if (!form) return;
+
+  const successBox = document.getElementById("form-success");
+  const captchaError = document.getElementById("captcha-error");
+
+  const fields = {
+    submissionType: {
+      el: document.getElementById("submissionType"),
+      err: document.getElementById("submissionType-error"),
+      validate: (v) => (v ? "" : "Please choose a submission type.")
+    },
+    title: {
+      el: document.getElementById("title"),
+      err: document.getElementById("title-error"),
+      validate: (v) => {
+        const t = v.trim();
+        if (!t) return "Title is required.";
+        if (t.length < 3) return "Title must be at least 3 characters.";
+        if (t.length > 80) return "Title must be 80 characters or less.";
+        return "";
+      }
+    },
+    relatedTo: {
+      el: document.getElementById("relatedTo"),
+      err: document.getElementById("relatedTo-error"),
+      validate: (v) => {
+        const t = v.trim();
+        if (!t) return "Please tell us what it’s from.";
+        if (t.length < 2) return "This must be at least 2 characters.";
+        if (t.length > 100) return "Please keep this to 100 characters or less.";
+        return "";
+      }
+    },
+    timestamp: {
+      el: document.getElementById("timestamp"),
+      err: document.getElementById("timestamp-error"),
+      validate: (v) => {
+        const t = v.trim();
+        if (!t) return "";
+        const ok = /^(\d{1,2}:)?\d{1,2}:\d{2}$/.test(t);
+        return ok ? "" : "Use mm:ss or hh:mm:ss (example: 00:42:10).";
+      }
+    },
+    details: {
+      el: document.getElementById("details"),
+      err: document.getElementById("details-error"),
+      validate: (v) => {
+        const t = v.trim();
+        if (!t) return "Details is required.";
+        if (t.length < 15) return "Please add more detail (15+ characters).";
+        if (t.length > 800) return "Please keep details to 800 characters or less.";
+        return "";
+      }
+    }
+  };
+
+  function setError(key, msg) {
+    const f = fields[key];
+    if (!f || !f.el || !f.err) return;
+
+    f.err.textContent = msg;
+    f.err.hidden = !msg;
+    f.el.classList.toggle("input-error", Boolean(msg));
+    f.el.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+
+  function clearAllErrors() {
+    for (const key of Object.keys(fields)) {
+      setError(key, "");
+    }
+
+    if (captchaError) {
+      captchaError.textContent = "";
+      captchaError.hidden = true;
+    }
+  }
+
+  function validateField(key) {
+    const f = fields[key];
+    const msg = f.validate(f.el.value);
+    setError(key, msg);
+    return !msg;
+  }
+
+  function validateAll() {
+    let ok = true;
+    for (const key of Object.keys(fields)) {
+      if (!validateField(key)) ok = false;
+    }
+    return ok;
+  }
+
+  function showMessage(text) {
+    if (!successBox) return;
+    successBox.textContent = text;
+    successBox.hidden = false;
+  }
+
+  function clearMessage() {
+    if (!successBox) return;
+    successBox.textContent = "";
+    successBox.hidden = true;
+  }
+
+  for (const key of Object.keys(fields)) {
+    const el = fields[key].el;
+    if (!el) continue;
+
+    el.addEventListener("input", () => validateField(key));
+    el.addEventListener("blur", () => validateField(key));
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearMessage();
+    clearAllErrors();
+
+    const gotcha = form.querySelector('input[name="_gotcha"]');
+    if (gotcha && gotcha.value.trim() !== "") return;
+
+    if (!validateAll()) {
+      const firstBad = Object.keys(fields).find((key) =>
+        fields[key].el.classList.contains("input-error")
+      );
+      if (firstBad) fields[firstBad].el.focus();
+      return;
+    }
+
+    if (window.grecaptcha && !grecaptcha.getResponse()) {
+      if (captchaError) {
+        captchaError.textContent = "Please complete the reCAPTCHA verification.";
+        captchaError.hidden = false;
+      }
+      return;
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (!res.ok) throw new Error("Submit failed");
+
+      form.reset();
+      clearAllErrors();
+      if (window.grecaptcha) grecaptcha.reset();
+
+      showMessage("Thanks! Your submission was sent for review. If approved, it will appear on the site.");
+    } catch {
+      showMessage("Sorry — something went wrong sending your submission. Please try again.");
+    }
+  });
+
+  // -----------------------
+  // Reset page state on back/forward cache restore
+  // -----------------------
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+
+    form.reset();
+    clearMessage();
+    clearAllErrors();
+
+    if (window.grecaptcha) {
+      grecaptcha.reset();
+    }
+  });
+});
