@@ -62,10 +62,6 @@ strong, b {
   justify-self: end;
 }
 
-#search-results {
-  display: none;
-}
-
 .main-nav ul {
   display: flex;
   list-style: none;
