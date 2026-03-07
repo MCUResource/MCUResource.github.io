@@ -1,7 +1,7 @@
 const pages = [
   //Main pages
   { title: "Movies", url: "movies.html", keywords: "film cinema movie mcu marvel" },
-  { title: "TV", url: "tv.html", keywords: "show tv television series streaming disney+ special presentation netflix abc marvel" },
+  { title: "TV", url: "tv.html", keywords: "show tv television series streaming disney+ special presentation netflix abc marvel mcu" },
   { title: "Timeline", url: "timeline.html", keywords: "timeline chronology chronological order watch order mcu marvel movies tv shows disney+ marvel television marvel entertainment" },
   { title: "Characters", url: "characters.html", keywords: "heroes villains characters profiles marvel mcu" },
   { title: "Easter Eggs & Theories", url: "eastereggs.html", keywords: "hidden details theories easter egg community archive marvel mcu" },
