@@ -1,93 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
   // -----------------------
-  // Approved submissions display (approved-submissions.json)
+  // Approved submissions display
   // -----------------------
   const listEl = document.getElementById("submission-list");
 
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
+  function renderApprovedItem(item) {
+    if (!listEl) return;
 
- function renderApprovedItem(item) {
-  if (!listEl) return;
+    const li = document.createElement("li");
 
-  const li = document.createElement("li");
+    const type = (item.submissionType || "Theory").toString();
+    const title = (item.title || "").toString();
+    const relatedTo = (item.relatedTo || "").toString();
+    const details = (item.details || "").toString();
+    const credit = (item.creditName || "").toString();
+    const ts = (item.timestamp || "").toString();
 
-  const type = (item.submissionType || "Theory").toString();
-  const title = (item.title || "").toString();
-  const relatedTo = (item.relatedTo || "").toString();
-  const details = (item.details || "").toString();
-  const credit = (item.creditName || "").toString();
-  const ts = (item.timestamp || "").toString();
+    const article = document.createElement("article");
+    article.className = "archive-entry";
 
-  const article = document.createElement("article");
-  article.className = "archive-entry";
+    const h3 = document.createElement("h3");
+    h3.className = "archive-title";
+    h3.textContent = `${type}: ${title}`;
+    article.appendChild(h3);
 
-  const h3 = document.createElement("h3");
-  h3.className = "archive-title";
-  h3.textContent = `${type}: ${title}`;
-  article.appendChild(h3);
+    if (relatedTo || ts) {
+      const meta = document.createElement("p");
+      meta.className = "archive-meta";
 
-  // Meta line (Related To + timestamp) only if either exists
-  if (relatedTo || ts) {
-    const meta = document.createElement("p");
-    meta.className = "archive-meta";
+      if (relatedTo) {
+        const label = document.createElement("span");
+        label.className = "archive-label";
+        label.textContent = "Related To:";
+        meta.appendChild(label);
+        meta.appendChild(document.createTextNode(" " + relatedTo));
+      }
 
-    if (relatedTo) {
-      const label = document.createElement("span");
-      label.className = "archive-label";
-      label.textContent = "Related To:";
-      meta.appendChild(label);
+      if (relatedTo && ts) {
+        meta.appendChild(document.createTextNode(" "));
+        const dot = document.createElement("span");
+        dot.className = "archive-timestamp";
+        dot.textContent = `• ${ts}`;
+        meta.appendChild(dot);
+      } else if (!relatedTo && ts) {
+        const time = document.createElement("span");
+        time.className = "archive-timestamp";
+        time.textContent = ts;
+        meta.appendChild(time);
+      }
 
-      meta.appendChild(document.createTextNode(" " + relatedTo));
+      article.appendChild(meta);
     }
 
-    if (relatedTo && ts) {
-      const dot = document.createElement("span");
-      dot.className = "archive-timestamp";
-      dot.textContent = `• ${ts}`;
-      meta.appendChild(document.createTextNode(" "));
-      meta.appendChild(dot);
-    } else if (!relatedTo && ts) {
-      const time = document.createElement("span");
-      time.className = "archive-timestamp";
-      time.textContent = ts;
-      meta.appendChild(time);
+    const detailsWrap = document.createElement("div");
+    detailsWrap.className = "archive-details";
+
+    const detailsLabel = document.createElement("p");
+    detailsLabel.className = "archive-label";
+    detailsLabel.textContent = "Details:";
+    detailsWrap.appendChild(detailsLabel);
+
+    const detailsText = document.createElement("p");
+    detailsText.className = "archive-text";
+    detailsText.textContent = details;
+    detailsWrap.appendChild(detailsText);
+
+    article.appendChild(detailsWrap);
+
+    if (credit) {
+      const creditP = document.createElement("p");
+      creditP.className = "archive-credit";
+      creditP.textContent = `Submitted by ${credit}`;
+      article.appendChild(creditP);
     }
 
-    article.appendChild(meta);
+    li.appendChild(article);
+    listEl.appendChild(li);
   }
-
-  const detailsWrap = document.createElement("div");
-  detailsWrap.className = "archive-details";
-
-  const detailsLabel = document.createElement("p");
-  detailsLabel.className = "archive-label";
-  detailsLabel.textContent = "Details:";
-  detailsWrap.appendChild(detailsLabel);
-
-  const detailsText = document.createElement("p");
-  detailsText.className = "archive-text";
-  detailsText.textContent = details;
-  detailsWrap.appendChild(detailsText);
-
-  article.appendChild(detailsWrap);
-
-  if (credit) {
-    const creditP = document.createElement("p");
-    creditP.className = "archive-credit";
-    creditP.textContent = `Submitted by ${credit}`;
-    article.appendChild(creditP);
-  }
-
-  li.appendChild(article);
-  listEl.appendChild(li);
-}
 
   async function loadApproved() {
     try {
@@ -102,11 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   (async () => {
     const approved = await loadApproved();
+    if (!listEl) return;
+
+    listEl.textContent = "";
+
+    if (approved.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No approved submissions are available right now.";
+      listEl.appendChild(li);
+      return;
+    }
+
     approved.forEach(renderApprovedItem);
   })();
 
   // -----------------------
-  // Form submission (Formspree) + validation + success message
+  // Form submission + validation + success message
   // -----------------------
   const form = document.getElementById("egg-form");
   if (!form) return;
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = v.trim();
         if (!t) return "Please tell us what it’s from.";
         if (t.length < 2) return "This must be at least 2 characters.";
-        if (t.length >100) return "Please keep this to 100 characters or less.";
+        if (t.length > 100) return "Please keep this to 100 characters or less.";
         return "";
       }
     },
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       validate: (v) => {
         const t = v.trim();
         if (!t) return "";
-        const ok = /^(\d{1,2}:)?\d{1,2}:\d{2}$/.test(t); // mm:ss or hh:mm:ss
+        const ok = /^(\d{1,2}:)?\d{1,2}:\d{2}$/.test(t);
         return ok ? "" : "Use mm:ss or hh:mm:ss (example: 00:42:10).";
       }
     },
@@ -162,14 +162,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (t.length > 800) return "Please keep details to 800 characters or less.";
         return "";
       }
-    },
+    }
   };
 
   function setError(key, msg) {
     const f = fields[key];
+    if (!f || !f.el || !f.err) return;
+
     f.err.textContent = msg;
+    f.err.hidden = !msg;
     f.el.classList.toggle("input-error", Boolean(msg));
     f.el.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+
+  function clearAllErrors() {
+    for (const key of Object.keys(fields)) {
+      setError(key, "");
+    }
+
+    if (captchaError) {
+      captchaError.textContent = "";
+      captchaError.hidden = true;
+    }
   }
 
   function validateField(key) {
@@ -181,50 +195,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function validateAll() {
     let ok = true;
-    for (const k of Object.keys(fields)) {
-      if (!validateField(k)) ok = false;
+    for (const key of Object.keys(fields)) {
+      if (!validateField(key)) ok = false;
     }
     return ok;
   }
 
-  // Show errors before submit
-  for (const k of Object.keys(fields)) {
-    const el = fields[k].el;
-    el.addEventListener("input", () => validateField(k));
-    el.addEventListener("blur", () => validateField(k));
-  }
-
   function showMessage(text) {
+    if (!successBox) return;
     successBox.textContent = text;
     successBox.hidden = false;
   }
 
   function clearMessage() {
+    if (!successBox) return;
     successBox.textContent = "";
     successBox.hidden = true;
+  }
+
+  for (const key of Object.keys(fields)) {
+    const el = fields[key].el;
+    if (!el) continue;
+
+    el.addEventListener("input", () => validateField(key));
+    el.addEventListener("blur", () => validateField(key));
   }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearMessage();
-    if (captchaError) captchaError.textContent = "";
+    clearAllErrors();
 
-    // Honeypot: if bot fills it, do nothing (quietly)
     const gotcha = form.querySelector('input[name="_gotcha"]');
     if (gotcha && gotcha.value.trim() !== "") return;
 
-    // Validate fields
     if (!validateAll()) {
-      const firstBad = Object.keys(fields).find((k) =>
-        fields[k].el.classList.contains("input-error")
+      const firstBad = Object.keys(fields).find((key) =>
+        fields[key].el.classList.contains("input-error")
       );
       if (firstBad) fields[firstBad].el.focus();
       return;
     }
 
-    // reCAPTCHA check (v2 checkbox)
     if (window.grecaptcha && !grecaptcha.getResponse()) {
-      if (captchaError) captchaError.textContent = "Please complete the reCAPTCHA verification.";
+      if (captchaError) {
+        captchaError.textContent = "Please complete the reCAPTCHA verification.";
+        captchaError.hidden = false;
+      }
       return;
     }
 
@@ -232,20 +249,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(form.action, {
         method: "POST",
         body: new FormData(form),
-        headers: { 
-          Accept: "application/json" 
+        headers: {
+          Accept: "application/json"
         }
       });
 
       if (!res.ok) throw new Error("Submit failed");
 
       form.reset();
-      for (const k of Object.keys(fields)) setError(k, "");
+      clearAllErrors();
       if (window.grecaptcha) grecaptcha.reset();
 
       showMessage("Thanks! Your submission was sent for review. If approved, it will appear on the site.");
     } catch {
       showMessage("Sorry — something went wrong sending your submission. Please try again.");
+    }
+  });
+
+  // -----------------------
+  // Reset page state on back/forward cache restore
+  // -----------------------
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+
+    form.reset();
+    clearMessage();
+    clearAllErrors();
+
+    if (window.grecaptcha) {
+      grecaptcha.reset();
     }
   });
 });
